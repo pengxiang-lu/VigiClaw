@@ -14,7 +14,7 @@ if str(PROJECT_ROOT) not in sys.path:
 os.environ.setdefault("MS_ASSET_DIR", str(PROJECT_ROOT / "assets"))
 
 import mani_skill.envs
-import openclaw_task  # Registers the OpenClaw environments with ManiSkill/Gymnasium.
+import openclaw_tasks  # Registers the OpenClaw environments with ManiSkill/Gymnasium.
 import queue
 import threading
 import time
@@ -672,7 +672,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--task",
         default="OpenclawMoveApple",
-        choices=openclaw_task.TASK_ENV_IDS,
+        choices=openclaw_tasks.TASK_ENV_IDS,
         help="OpenClaw ManiSkill task to run (default: OpenclawMoveApple).",
     )
     parser.add_argument(
