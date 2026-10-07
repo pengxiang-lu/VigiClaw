@@ -1,3 +1,10 @@
+from pathlib import Path
+import os
+
+# Use the project-level asset directory regardless of the current directory.
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+os.environ.setdefault("MS_ASSET_DIR", str(PROJECT_ROOT / "assets"))
+
 # 创建 test_run.py
 import gymnasium as gym
 import mani_skill.envs

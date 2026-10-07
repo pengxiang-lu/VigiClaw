@@ -1,12 +1,17 @@
 from pathlib import Path
 import sys
 import argparse
+import os
 
 # Make direct execution from ``openclaw_control/`` behave like execution from
 # the project root, so the sibling ``openclaw_task`` package is importable.
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
+
+# ManiSkill appends ``data`` to this directory when loading external assets.
+# Resolve it from this file so the server works from any current directory.
+os.environ.setdefault("MS_ASSET_DIR", str(PROJECT_ROOT / "assets"))
 
 import mani_skill.envs
 import openclaw_task  # Registers the OpenClaw environments with ManiSkill/Gymnasium.
@@ -20,7 +25,6 @@ import gymnasium as gym
 import numpy as np
 import torch
 import csv
-import os
 from datetime import datetime
 import uvicorn
 from fastapi import FastAPI, HTTPException
