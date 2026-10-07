@@ -1,0 +1,19 @@
+[project]
+name = "vigiclaw"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "fastapi>=0.142.2",
+    "gymnasium>=1.4.0",
+    "mani-skill>=3.0.1",
+    "pynput>=1.8.2",
+    "requests>=2.32.0",
+    "torch>=2.14.1",
+    "uvicorn>=0.54.0",
+]
+
+[[tool.uv.index]]
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
